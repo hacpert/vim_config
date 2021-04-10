@@ -121,9 +121,10 @@ Plug 'tjdevries/nlua.nvim'
 Plug 'tjdevries/lsp_extensions.nvim'
 " Initialize plugin system
 
-
+Plug 'itchyny/vim-gitbranch'
 
 Plug 'jiangmiao/auto-pairs'
+Plug 'ludovicchabant/vim-gutentags'
 
 " autocomplete https://github.com/Shougo/deoplete.nvim
 
@@ -477,5 +478,36 @@ let g:test#javascript#runner = 'jest'
 highlight ALEErrorSign ctermbg=NONE ctermfg=red
 highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 
-let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#ale#enabled = 1 
 
+" If you want to use ALE only for linting,
+" you can explicitly disable LSP tools
+let g:ale_disable_lsp = 0
+
+" Use different highlighting to point out problems
+let g:ale_set_highlights = 1
+
+" Use the sign column (far left) to point out problems
+let g:ale_set_signs = 1
+
+" Symbols to use if g:ale_set_signs is enabled
+" let g:ale_sign_error = "◉"
+" let g:ale_sign_warning = "◉"
+
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
+
+
+hi link ALEErrorSign   GruvboxRed 
+hi link ALEWarningSign GruvboxYellow 
+
+hi Error   cterm=bold gui=bold
+hi Warning cterm=bold gui=bold
+
+nnoremap <leader>an :ALENextWrap<cr>
+nnoremap <leader>ap :ALEPreviousWrap<cr> 
+
+
+let g:gutentags_cache_dir="~/.cache/nvim/tagfiles/" 
+
+set clipboard=unnamedplus
