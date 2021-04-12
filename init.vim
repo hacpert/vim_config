@@ -1,6 +1,5 @@
 syntax on
 
-
 set exrc
 set relativenumber
 set nu
@@ -124,7 +123,7 @@ Plug 'tjdevries/lsp_extensions.nvim'
 Plug 'itchyny/vim-gitbranch'
 
 Plug 'jiangmiao/auto-pairs'
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 
 " autocomplete https://github.com/Shougo/deoplete.nvim
 
@@ -494,7 +493,8 @@ let g:ale_set_signs = 1
 " let g:ale_sign_error = "◉"
 " let g:ale_sign_warning = "◉"
 
-let g:ale_sign_error = '❌'
+let g:ale_sign_error = '✘'
+"let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 
 
