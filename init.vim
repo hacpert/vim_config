@@ -1,8 +1,11 @@
 syntax on
 
+syntax enable
+set laststatus=2 
 set exrc
 set relativenumber
 set nu
+set noshowmode
 set nohlsearch
 set hidden
 set noerrorbells
@@ -369,7 +372,8 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
 
-noremap <Leader>w :w<CR>
+" safe files
+noremap <Leader>s :w<CR>
 noremap <Leader>q :q<CR>
 noremap <Leader>r :CocCommand Flutter.run<CR>
 
@@ -510,4 +514,6 @@ nnoremap <leader>ap :ALEPreviousWrap<cr>
 
 let g:gutentags_cache_dir="~/.cache/nvim/tagfiles/" 
 
-set clipboard=unnamedplus
+set clipboard=unnamed
+set showcmd
+set path=.,src
