@@ -107,7 +107,10 @@ Plug 'nvim-lua/completion-nvim'
 
 Plug 'rust-lang/rust.vim'
 Plug 'tweekmonster/gofmt.vim'
+
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
+
 Plug 'junegunn/gv.vim'
 Plug 'vim-utils/vim-man'
 Plug 'mbbill/undotree'
@@ -150,6 +153,8 @@ Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'dense-analysis/ale' 
 
 Plug 'vim-test/vim-test'
+Plug 'AndrewRadev/tagalong.vim'
+
 call plug#end()
 
 let g:coc_global_extensions = [
@@ -517,3 +522,5 @@ let g:gutentags_cache_dir="~/.cache/nvim/tagfiles/"
 set clipboard=unnamed
 set showcmd
 set path=.,src
+" set path+=**
+" set wildmenu
