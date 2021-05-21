@@ -51,6 +51,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'ap/vim-css-color'
 
 " spelling words 
 " Plug 'micarmst/vim-spellsync'
@@ -85,7 +86,6 @@ Plug 'jparise/vim-graphql'
 
 
 Plug 'mxw/vim-jsx'
-
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -435,11 +435,13 @@ endfunction
 " Equivalent to the above.
 let b:ale_linters = {'javascript': ['eslint', 'prettier']}
 
+nmap <silent> <C-g> <Plug>(ale_previous_wrap)
+nmap <silent> <C-d> <Plug>(ale_next_wrap)
+
 let g:ale_fixers = {
 \   'javascript': ['eslint','prettier'],
 \   'css': ['prettier'],
 \}
-
 
 let g:ale_linters_explicit = 1
 let g:ale_fix_on_save = 1
@@ -462,6 +464,7 @@ let s:LSP_CONFIG = {
 \  }
 \}
 
+
 let s:languageservers = {}
 for [lsp, config] in items(s:LSP_CONFIG)
   let s:not_empty_cmd = !empty(get(config, 'command'))
@@ -481,8 +484,11 @@ nmap <silent> t<C-g> :TestVisit<CR>
 
 let g:test#javascript#runner = 'jest'
 
-"let g:ale_sign_error = '✘'
-"let g:ale_sign_warning = '⚠'
+augroup FiletypeGroup
+    autocmd!
+    au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+augroup END
+
 highlight ALEErrorSign ctermbg=NONE ctermfg=red
 highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 
@@ -491,7 +497,11 @@ let g:airline#extensions#ale#enabled = 1
 " If you want to use ALE only for linting,
 " you can explicitly disable LSP tools
 let g:ale_disable_lsp = 0
-
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+" let g:ale_open_list = 1
+" let g:ale_keep_list_window_open = 1
+ 
 " Use different highlighting to point out problems
 let g:ale_set_highlights = 1
 
@@ -499,11 +509,7 @@ let g:ale_set_highlights = 1
 let g:ale_set_signs = 1
 
 " Symbols to use if g:ale_set_signs is enabled
-" let g:ale_sign_error = "◉"
-" let g:ale_sign_warning = "◉"
-
 let g:ale_sign_error = '✘'
-"let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 
 
