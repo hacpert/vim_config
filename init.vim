@@ -155,6 +155,13 @@ Plug 'dense-analysis/ale'
 Plug 'vim-test/vim-test'
 Plug 'AndrewRadev/tagalong.vim'
 
+
+"  import cost required
+Plug 'yardnsm/vim-import-cost', { 'do': 'npm install' }
+
+" package json update
+Plug 'meain/vim-package-info', { 'do': 'npm install' }
+
 call plug#end()
 
 let g:coc_global_extensions = [
@@ -530,3 +537,12 @@ set showcmd
 set path=.,src
 " set path+=**
 " set wildmenu
+"
+
+" import cost auto on buffer
+augroup import_cost_auto_run
+  autocmd!
+  autocmd InsertLeave *.js,*.jsx,*.ts,*.tsx ImportCost
+  autocmd BufEnter *.js,*.jsx,*.ts,*.tsx ImportCost
+  "autocmd CursorHold *.js,*.jsx,*.ts,*.tsx ImportCost
+augroup END
