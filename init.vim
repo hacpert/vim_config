@@ -30,6 +30,7 @@ set scrolloff=8
 set signcolumn=yes
 " always uses spaces instead of tab characters
 
+set foldmethod=manual
 
 set spell spelllang=en_us
 set spellfile=~/.vim/spell/en.utf-8.add
@@ -162,7 +163,14 @@ Plug 'yardnsm/vim-import-cost', { 'do': 'npm install' }
 " package json update
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
 
+
+Plug 'Rigellute/shades-of-purple.vim'
+
 call plug#end()
+
+" if (has("termguicolors"))
+" set termguicolors
+" endif
 
 let g:coc_global_extensions = [
 \ 'coc-json',
@@ -199,7 +207,8 @@ noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
 let g:gruvbox_material_background = 'hard'
 
-colorscheme gruvbox-material
+ colorscheme gruvbox-material
+" colorscheme shades_of_purple
 " colorscheme gruvbox
 
 " set background=dark termguicolors cursorline
@@ -296,8 +305,6 @@ augroup mygroup
 augroup end
 
 " search files 
-nmap <leader>gd <Plug>(coc-definition)
-nmap <leader>gr <Plug>(coc-references)
 nnoremap <C-p> :GFiles<CR>
 
 " Remap for do codeAction
@@ -307,7 +314,7 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 " Remap for do codeAction of current line
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
-nmap <leader>qf  <Plug>(coc-fix-current)
+nmap <leader>af  <Plug>(coc-fix-current)
 
 " Create mappings for function text object, requires document symbols feature of languageserver.
 xmap if <Plug>(coc-funcobj-i)
@@ -430,6 +437,8 @@ filetype plugin indent on
 
 nnoremap <leader>t :call <SID>show_documentation()<CR>
 
+nnoremap <leader>fl :CocList --input=flutter commands<CR>
+
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('&lt;cword&gt;')
@@ -546,3 +555,7 @@ augroup import_cost_auto_run
   autocmd BufEnter *.js,*.jsx,*.ts,*.tsx ImportCost
   "autocmd CursorHold *.js,*.jsx,*.ts,*.tsx ImportCost
 augroup END
+
+
+let g:vim_package_info_virutaltext_prefix = '  ¤ '
+

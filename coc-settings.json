@@ -9,7 +9,7 @@
     "typescript.tsx",
     "dart"
   ],
-  "eslint.enable": true,
+  "eslint.enable": false,
   "eslint.autoFixOnSave": true,
   "eslint.autoFix": true,
   "eslint.packageManager": ["npm", "yarn"],
@@ -65,5 +65,38 @@
     "type": "object",
     "default": {},
     "description": "formatFiletypes config same as diagnostic-languageserver's formatFiletypes config"
-  }
+  },
+  "cSpellExt.enableDictionaries": ["spanish"],
+  "cSpell.language": "en,es",
+  "cSpell.customFolderDictionaries": [],
+  "cSpell.customUserDictionaries": [],
+  "cSpell.userWords": [
+    "Copiable",
+    "Memonized",
+    "Mixpanel",
+    "Modalize",
+    "Woolet",
+    "Zinli",
+    "biip",
+    "boton",
+    "destinatary",
+    "dimentions",
+    "dismissable",
+    "ellipsize",
+    "fonticons",
+    "haskkor",
+    "hocs",
+    "mftech",
+    "navigations",
+    "organims",
+    "pincode",
+    "pressable",
+    "qrcode",
+    "ramoncito",
+    "rapyd",
+    "recargaefectivo",
+    "recargatarjetas",
+    "rippleable",
+    "sublabel"
+  ]
 }
