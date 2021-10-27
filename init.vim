@@ -93,7 +93,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
 Plug 'stsewd/fzf-checkout.vim' 
 
-Plug 'dart-lang/dart-vim-plugin'
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
 
@@ -130,12 +129,23 @@ Plug 'tjdevries/lsp_extensions.nvim'
 Plug 'itchyny/vim-gitbranch'
 
 Plug 'jiangmiao/auto-pairs'
+
+"Dart/Flutter
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'thosakwe/vim-flutter'
+Plug 'natebosch/vim-lsc'
+Plug 'natebosch/vim-lsc-dart'
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'akinsho/flutter-tools.nvim'
+
 " Plug 'ludovicchabant/vim-gutentags'
 
 " autocomplete https://github.com/Shougo/deoplete.nvim
 
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'glepnir/lspsaga.nvim'
 
 "if has('nvim')
   "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -165,6 +175,9 @@ Plug 'meain/vim-package-info', { 'do': 'npm install' }
 
 
 Plug 'Rigellute/shades-of-purple.vim'
+
+" package for go 
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
@@ -559,3 +572,9 @@ augroup END
 
 let g:vim_package_info_virutaltext_prefix = '  ¤ '
 
+
+
+" nnoremap <leader>ft :Telescope flutter commands<cr>
+nnoremap <leader>fl :CocList --input=flutter commands<cr>
+
+let g:lsc_auto_map = v:true

@@ -98,5 +98,6 @@
     "recargatarjetas",
     "rippleable",
     "sublabel"
-  ]
+  ],
+  "coc.preferences.extensionUpdateCheck": "daily"
 }
